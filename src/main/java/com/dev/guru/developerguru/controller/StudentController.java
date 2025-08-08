@@ -38,6 +38,11 @@ public class StudentController {
         return ResponseEntity.ok().body(stud);
     }
 
+    /**
+     * This API s used to fetch student using name
+     * @param name
+     * @return student
+     */
     @GetMapping("/name/{name}")
     public ResponseEntity<Student> getStudentByName(@PathVariable String name){
         Student stud =studentService.getStudentByName(name);
