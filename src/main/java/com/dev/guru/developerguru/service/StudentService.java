@@ -14,6 +14,12 @@ public class StudentService {
         return s;
     }
 
+    public Student getStudentByName(String name) {
+        Student s = Student.builder().
+                sid(101).name("Ganesh").age(22).gender("Male").build();
+        return s;
+    }
+
     public List<Student> getStudents() {
         List<Student> studentList = new ArrayList<>();
         Student s1 = Student.builder().
