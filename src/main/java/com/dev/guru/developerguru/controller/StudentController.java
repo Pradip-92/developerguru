@@ -17,15 +17,30 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    /**
+     * Api used to fetch employee list from database
+     * @return List<Student>
+     */
     @GetMapping("/list")
     public ResponseEntity<List<Student>> getStudentList() {
         List<Student> studList = studentService.getStudents();
         return ResponseEntity.ok().body(studList);
     }
 
+    /**
+     * This API is used to fetch student details  by using student id
+     * @param sid
+     * @return student
+     */
     @GetMapping("/sid/{sid}")
     public ResponseEntity<Student> getStudent(@PathVariable("sid") int sid) {
         Student stud = studentService.getStudent();
+        return ResponseEntity.ok().body(stud);
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<Student> getStudentByName(@PathVariable String name){
+        Student stud =studentService.getStudentByName(name);
         return ResponseEntity.ok().body(stud);
     }
 }
